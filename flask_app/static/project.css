@@ -1,0 +1,9 @@
+.dropdown-menu {
+    background: whitesmoke;
+    display: none;
+    position: absolute;
+}
+
+.dropdown-menu.show {
+    display: block;
+}

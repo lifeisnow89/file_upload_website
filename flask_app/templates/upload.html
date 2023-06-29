@@ -1,0 +1,23 @@
+{% extends "dashboard.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    
+{% endblock %}
+{% block content %}
+    <h1>Contribute here</h1>{%with success_messages = get_flashed_messages(category_filter=["success"]) %}
+    {% for msg in success_messages %}
+        <div class="alert alert-success">{{ msg }}</div>
+    {% endfor %}
+{% endwith %}
+    <div class="row">
+        <div class="col">
+            <h3>Upload an image</h3>
+            <form method="post" class="col-4" action="/gallery/view" enctype="multipart/form-data">
+                <label>File Upload</label>
+                <input type="file" name="my_file">
+                <input type="submit" class="btn btn-primary">
+            </form>
+        </div>
+    <a href="/set-profile-pic">Set your profile pic</a>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "dashboard.html" %}
+{% block head %}
+    {{ super() }}
+    {% endblock %}
+    {% block content %}
+    <form id="searchForm" onsubmit="search(event)" >
+        <h2>Search</h2>
+        <input type="text" name="query">
+        <input type="submit" value="Search" >
+    </form>
+    <script src="{{ url_for('static', filename='app.js') }}">var myForm = document.getElementById('myForm');
+        myForm.onsubmit = function(e){
+            e.preventDefault();
+        } 
+        var form = new FormData(myForm);
+        fetch("http://localhost:5000/get/news", { method :'POST', body : form})
+            .then( response => response.json() )
+            .then( data => console.log(data) )
+    </script>
+    {% endblock %}
